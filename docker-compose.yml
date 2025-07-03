@@ -1,0 +1,16 @@
+
+services:
+  api:
+    # Constrói a imagem a partir do Dockerfile no diretório atual (.)
+    build: .
+    container_name: api # Nome dp container
+    # Mapeia a porta 8000 do host para a porta 8000 do contêiner
+    ports:
+      - "8000:8000"
+
+    # Monta o diretório atual no contêiner
+    volumes:
+      - .:/app
+
+    # O comando para iniciar a aplicação é herdado do Dockerfile:
+    # CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000",  "--reload"]
